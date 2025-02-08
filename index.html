@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรไฟล์ Haruka</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffcccc, #ff6666);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .profile-container {
+            text-align: center;
+            background: white;
+            padding: 20px 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 350px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff4d4d;
+        }
+        .username {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-yes {
+            background-color: #ff4d4d;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-no {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+        .message {
+            font-size: 40px;
+            color: #ff4d4d;
+            font-weight: bold;
+            margin-top: 15px;
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="01.png" alt="Profile Picture" class="profile-pic">
+        <div class="username">Haruka</div>
+        <h2>ดีกานนนนะ</h2>
+        <div class="buttons">
+            <button class="btn btn-yes" id="btnYes">หายงอน</button>
+            <button class="btn btn-no" id="btnNo">ไม่</button>
+        </div>
+        <div class="message" id="message">น่ารักจัง ❤️</div>
+    </div>
+
+    <script>
+        let btnYes = document.getElementById("btnYes");
+        let btnNo = document.getElementById("btnNo");
+        let message = document.getElementById("message");
+        let buttons = document.querySelector(".buttons");
+        let sizeYes = 18; // ขนาดเริ่มต้นของปุ่ม "หายงอน"
+        let sizeNo = 18;  // ขนาดเริ่มต้นของปุ่ม "ไม่"
+
+        btnNo.addEventListener("click", function() {
+            sizeYes += 6; // ขยายปุ่ม "หายงอน" มากขึ้น
+            sizeNo -= 2; // ลดขนาดปุ่ม "ไม่" ลง
+            btnYes.style.fontSize = sizeYes + "px";
+            btnYes.style.padding = (sizeYes / 2) + "px " + (sizeYes + 15) + "px";
+            btnNo.style.fontSize = sizeNo + "px";
+            btnNo.style.padding = (sizeNo / 2) + "px " + (sizeNo + 5) + "px";
+        });
+
+        btnYes.addEventListener("click", function() {
+            buttons.style.display = "none"; // ซ่อนปุ่มทั้งหมด
+            message.style.display = "block"; // แสดงข้อความ
+        });
+    </script>
+
+</body>
+</html>
