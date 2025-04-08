@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            color: #6b5b95;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        #buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            font-size: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 180px;
+        }
+        #forgive {
+            background-color: #ff85a2;
+            color: white;
+        }
+        #forgive:hover {
+            background-color: #ff5c8a;
+        }
+        #notForgive {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        #notForgive:hover {
+            background-color: #e55b5b;
+        }
+        #cute-section {
+            display: none;
+            margin-top: 30px;
+        }
+        img {
+            width: 250px;
+            max-width: 100%;
+            margin-top: 15px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <img id="img01" src="meli.jpg" alt="" style="width: 100px; border-radius: 100px; margin-bottom: 20px;">
+    <h1 id="title">ดีกันนนนะคั้บบ 💖</h1>
+    <div id="buttons">
+        <button id="forgive" onclick="forgive()">หายงอน 💕</button>
+        <button id="notForgive" onclick="shrinkButton()">ไม่หาย!! 😠</button>
+    </div>
+    <div id="cute-section">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamx2bm5kamVnaHFmZG1jZGR5N2F3bzBmNnoyandpdW1icHVydnFhcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JmOCq0T5qEJyZ3oQj8/giphy.gif" alt="Cinnamoroll">
+        <h1>น่ารักจังงง 💖</h1>
+    </div>
+
+    <script>
+        let notForgiveBtn = document.getElementById("notForgive");
+        let forgiveBtn = document.getElementById("forgive");
+
+        function shrinkButton() {
+            let notForgiveSize = parseFloat(window.getComputedStyle(notForgiveBtn).fontSize);
+            let forgiveSize = parseFloat(window.getComputedStyle(forgiveBtn).fontSize);
+            
+            if (notForgiveSize > 10) {
+                notForgiveBtn.style.fontSize = (notForgiveSize - 5) + "px";
+                forgiveBtn.style.fontSize = (forgiveSize + 5) + "px";
+            } else {
+                notForgiveBtn.style.display = "none";
+            }
+        }
+
+        function forgive() {
+            document.getElementById("title").style.display = "none"; // ซ่อนข้อความ "ดีกันนนนะคั้บบ"
+            document.getElementById("img01").style.display = "none";
+            document.getElementById("buttons").style.display = "none";
+            document.getElementById("cute-section").style.display = "block";
+        }
+    </script>
+</body>
+</html>
